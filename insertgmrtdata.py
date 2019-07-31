@@ -1,7 +1,9 @@
 import os
 import glob
 
-cycle_id = 36
+from config import *
+from gmrtfileutils import GmrtFileUtility
+from gmrtdbutils import GmrtDbUtils
 
 class InsertGmrtDataController:
     """
@@ -14,5 +16,7 @@ class InsertGmrtDataController:
     """
     
     def checking_files_dbrecords(self):
-        pass
+        lta_file_list = GmrtFileUtility.get_lta_file_list(self)
+        lta_db_list = GmrtDbUtils.get_database_lta_list(self)
+        print(lta_file_list, lta_db_list)
     
