@@ -13,7 +13,7 @@ class GmrtDbUtils:
     def get_backend_type(self, proj_code):
         print(proj_code)
         sql = "select backend_type from gmrt.proposal where proposal_id = '{}'".format(proj_code)
-        backend_type = select_from_db(sql)[0]
+        backend_type = select_from_db(sql)
         return backend_type
 
 
