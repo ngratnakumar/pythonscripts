@@ -29,11 +29,11 @@ class InsertGmrtDataController:
                 else:
                     proj_code = proj_code_with_date[:7] 
                 backend_type = GmrtDbUtils.get_backend_type(proj_code)
-                if "GWB" in backend_type OR "gwb" in backend_type:
-                    if "GWB" in each_lta OR "gwb" in each_lta:
+                if ("GWB" in backend_type OR "gwb" in backend_type):
+                    if ("GWB" in each_lta OR "gwb" in each_lta):
                         to_db_list.append(each_lta)
                 else:
-                    if not "GWB" in each_lta OR not "gwb" in each_lta:
+                    if (not "GWB" in each_lta OR not "gwb" in each_lta):
                         to_db_list.append(each_lta)
         return to_db_list
                         
