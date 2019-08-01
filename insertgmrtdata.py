@@ -14,9 +14,15 @@ class InsertGmrtDataController:
     4 if all the above conditions gets satisfied, if the data is not in
         NAPSGOADB database, insert it
     """
-    
+
     def checking_files_dbrecords(self):
-        lta_file_list = GmrtFileUtility.get_lta_file_list(self)
-        lta_db_list = GmrtDbUtils.get_database_lta_list(self)
+        lta_file_list = GmrtFileUtility().get_lta_file_list()
+        lta_db_list = GmrtDbUtils().get_database_lta_list()
+        #print(len(lta_file_list), len(lta_db_list))
         print(lta_file_list, lta_db_list)
-    
+        #print(lta_file_list)
+        #print(lta_db_list)
+
+
+InsertGmrtDataController = InsertGmrtDataController()
+InsertGmrtDataController.checking_files_dbrecords()
