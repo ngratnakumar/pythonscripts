@@ -20,7 +20,7 @@ class InsertGmrtDataController:
         to_db_list = []
         gmrt_db_utils = GmrtDbUtils()
         for each_lta in files_list:
-            if (not "TEST" in each_lta or not "test" in each_lta or not "TST" in each_lta or not "tst" in each_lta):
+            if ("TEST" not in each_lta or "test" not in each_lta or "TST" not in each_lta or "tst" not in each_lta):
                 lta_file = os.path.basename(each_lta)
                 file_path = os.path.dirname(each_lta)
                 proj_code = gmrt_db_utils.get_projcode_by_ltaname(lta_file)
