@@ -8,6 +8,7 @@ class GmrtDbUtils:
         lta_list = []
         for each_lta_file in lta_db_list:
             lta_list.append(each_lta_file[0].strip())
+        lta_list.sort(reverse = True)
         return lta_list
 
     def get_backend_type(self, proj_code):
