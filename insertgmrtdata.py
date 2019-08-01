@@ -42,14 +42,7 @@ class InsertGmrtDataController:
                             if (not "GWB" in each_lta or not "gwb" in each_lta):
                                 to_db_list.append(each_lta)
         return to_db_list
-                        
-
-    def check_db_file_path(self, dblist):
-        ltas_to_db = []
-        for each_lta in dblist:
-            each_lta = each_lta.replace('//','/')
-        pass
-                    
+                                         
     def checking_files_dbrecords(self):
         lta_file_list = GmrtFileUtility().get_lta_file_list()
         lta_db_list = GmrtDbUtils().get_database_lta_list()
@@ -58,6 +51,10 @@ class InsertGmrtDataController:
         #print(lta_file_list)
         #print(lta_db_list)
         return lta_file_list, lta_db_list      
+        
+    def generate_sqls(self, data_paths):
+        for each_path in data_paths:
+            GmrtUtilites().xinfo(each_path)
         
     def program_controller(self):
         gmrt_lta_files, gmrt_lta_db = self.checking_files_dbrecords()
