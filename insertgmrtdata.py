@@ -18,17 +18,18 @@ class InsertGmrtDataController:
 
     def check_for_backend_type(self, files_list):
         to_db_list = []
+        gmrt_db_utils = GmrtDbUtils()
         for each_lta in files_list:
             lta_file = os.path.basename(each_lta)
             file_path = os.path.dirname(each_lta)
-            proj_code = GmrtDbUtils.get_projcode_by_ltaname(lta_file)
+            proj_code = gmrt_db_utils.get_projcode_by_ltaname(lta_file)
             if not proj_code:
                 proj_code_with_date = os.path.basename(file_path)
                 if '_' in proj_code_with_date:
                     proj_code = proj_code_with_date[:6]
                 else:
                     proj_code = proj_code_with_date[:7] 
-                backend_type = GmrtDbUtils.get_backend_type(proj_code)
+                backend_type = gmrt_db_utils.get_backend_type(proj_code)
                 if ("GWB" in backend_type or "gwb" in backend_type):
                     if ("GWB" in each_lta or "gwb" in each_lta):
                         to_db_list.append(each_lta)
