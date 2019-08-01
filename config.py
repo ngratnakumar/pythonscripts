@@ -26,10 +26,8 @@ def get_data(section, key):
     parser.read(CONFIG_FILE)
     return parser.get(section, key)
 
-def select_from_db():
+def select_from_db(sql):
     """ Connect to the PostgreSQL database server """
-    CYCLE_ID = get_data('cycle_info','CYCLE_ID')
-    SQL1=" select  CONCAT(file_path,'/', coalesce(NULLIF(lta_file, ''), lta_gsb_file)) AS file_name from das.scangroup where file_path like '%CYCLE{}%';".format(CYCLE_ID)
     conn = None
     select_result = 0
     try:
@@ -40,7 +38,7 @@ def select_from_db():
 
         # create a cursor
         cur = conn.cursor()
-        cur.execute(SQL1)
+        cur.execute(sql)
 
         select_result = cur.fetchall()
         #print(select_result)
