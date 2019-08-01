@@ -33,7 +33,7 @@ def select_from_db(sql):
     try:
         # read connection parameters
         params = dbconfig()
-        print('Connecting to the PostgreSQL database...')
+        # print('Connecting to the PostgreSQL database...')
         conn = psycopg2.connect(**params)
 
         # create a cursor
@@ -49,5 +49,5 @@ def select_from_db(sql):
     finally:
         if conn is not None:
             conn.close()
-            print('Database connection closed.')
+            # print('Database connection closed.')
     return select_result
