@@ -29,11 +29,11 @@ class InsertGmrtDataController:
                 else:
                     proj_code = proj_code_with_date[:7] 
                 backend_type = GmrtDbUtils.get_backend_type(proj_code)
-                if ("GWB" in backend_type OR "gwb" in backend_type):
-                    if ("GWB" in each_lta OR "gwb" in each_lta):
+                if ("GWB" in backend_type or "gwb" in backend_type):
+                    if ("GWB" in each_lta or "gwb" in each_lta):
                         to_db_list.append(each_lta)
                 else:
-                    if (not "GWB" in each_lta OR not "gwb" in each_lta):
+                    if (not "GWB" in each_lta or not "gwb" in each_lta):
                         to_db_list.append(each_lta)
         return to_db_list
                         
@@ -48,7 +48,7 @@ class InsertGmrtDataController:
         lta_file_list = GmrtFileUtility().get_lta_file_list()
         lta_db_list = GmrtDbUtils().get_database_lta_list()
         #print(len(lta_file_list), len(lta_db_list))
-        print(lta_file_list, lta_db_list)
+        # print(lta_file_list, lta_db_list)
         #print(lta_file_list)
         #print(lta_db_list)
         return lta_file_list, lta_db_list      
@@ -56,7 +56,8 @@ class InsertGmrtDataController:
     def program_controller(self):
         gmrt_lta_files, gmrt_lta_db = self.checking_files_dbrecords()
         ltas_to_db = self.check_for_backend_type(gmrt_lta_files)
+        print(ltas_to_db)
         
 
 InsertGmrtDataController = InsertGmrtDataController()
-InsertGmrtDataController.checking_files_dbrecords()
+InsertGmrtDataController.program_controller()
