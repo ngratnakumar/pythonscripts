@@ -11,14 +11,14 @@ class GmrtDbUtils:
         return lta_list
 
     def get_backend_type(self, proj_code):
-        sql = "select backend_type from gmrt.proposals where proposal_id = '{}'".format(proj_code)
+        sql = "select backend_type from gmrt.proposal where proposal_id = '{}'".format(proj_code)
         backend_type = select_from_db(sql)
         print(backend_type)
         return backend_type
 
 
     def get_projcode_by_ltaname(self, lta_file):
-        sql = "select proj_code from das.scangroup where lta_gsb_file = '{}' or lta_file = '{}'".format(lta_file, lta_file)
+        sql = " select distinct proj_code from das.scangroup sg inner join das.scans s on s.scangroup_id = sg.scangroup_id where lta_gsb_file = '{}' or lta_file = '{}'".format(lta_file, lta_file)
         proj_code = select_from_db(sql)
         print(proj_code)
         return proj_code
