@@ -23,7 +23,6 @@ class InsertGmrtDataController:
         for each_lta in files_list:
             if ("TEST" not in each_lta or "test" not in each_lta or "TST" not in each_lta or "tst" not in each_lta):
                 lta_file = os.path.basename(each_lta)
-                file_path = os.path.dirname(each_lta)
                 proj_code = gmrt_db_utils.get_projcode_by_ltaname(lta_file)
                 if proj_code != 0:
                     # proj_code_with_date = os.path.basename(file_path)
@@ -50,12 +49,8 @@ class InsertGmrtDataController:
                                          
     def checking_files_dbrecords(self):
         lta_file_list = GmrtFileUtility().get_lta_file_list()
-        lta_db_list = GmrtDbUtils().get_database_lta_list()
-        #print(len(lta_file_list), len(lta_db_list))
-        # print(lta_file_list, lta_db_list)
-        #print(lta_file_list)
-        #print(lta_db_list)
-        return lta_file_list, lta_db_list      
+        # lta_db_list = GmrtDbUtils().get_database_lta_list()
+        return lta_file_list    
         
     def generate_sqls(self, data_paths):
         print("Inside generate_sqls", data_paths)
@@ -65,7 +60,7 @@ class InsertGmrtDataController:
         return sql_scripts
     
     def program_controller(self):
-        gmrt_lta_files, gmrt_lta_db = self.checking_files_dbrecords()
+        gmrt_lta_files = self.checking_files_dbrecords()
         ltas_to_db = self.check_for_backend_type(gmrt_lta_files)
         sql_scripts = self.generate_sqls(ltas_to_db)
         print(sql_scripts)
