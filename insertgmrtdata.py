@@ -53,13 +53,16 @@ class InsertGmrtDataController:
         return lta_file_list, lta_db_list      
         
     def generate_sqls(self, data_paths):
+        sql_scripts = []
         for each_path in data_paths:
-            print(GmrtUtilites().xinfo(each_path))
-        
+            sql_scripts.append(GmrtUtilites().xinfo(each_path))
+        return sql_scripts
+    
     def program_controller(self):
         gmrt_lta_files, gmrt_lta_db = self.checking_files_dbrecords()
         ltas_to_db = self.check_for_backend_type(gmrt_lta_files)
-        print(ltas_to_db)
+        sql_scripts = self.generate_sqls(ltas_to_db)
+        print(sql_scripts)
         
 
 InsertGmrtDataController = InsertGmrtDataController()
