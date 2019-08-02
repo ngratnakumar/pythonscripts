@@ -11,12 +11,15 @@ class GmrtUtilites:
         observation_no = 0
         if obslog_file:
             observation_no = os.path.basename(obslog_file).split('.')[0]
-        return (observation_no, dirname, basename, obslog_file, file_path)
+        return (xinfo_bin, observation_no, dirname, basename, obslog_file, file_path)
      
-    def jxinfo(self):
+    def jxinfo(self, file_path):
         jxinfo_bin = get_data('gmrt_utils','XINFO')
-        pass
-    
+        dirname = os.path.dirname(file_path)
+        basename = os.path.dirname(file_path)
+        sql_file = file_path+'.sql'
+        return (jxinfo_bin, dirname, basename, sql_file)
+            
     def ltaclean(self):
         ltaclean_bin = get_data('gmrt_utils','XINFO')
         pass
