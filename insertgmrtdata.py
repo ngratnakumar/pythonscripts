@@ -38,9 +38,11 @@ class InsertGmrtDataController:
                         # print(each_lta, proj_code_with_date, proj_code, backend_type)
                         if ("GWB" in backend_type or "gwb" in backend_type):
                             if ("GWB" in each_lta or "gwb" in each_lta):
+                                print(backend_type, "=== GWB")
                                 to_db_list.append(each_lta)
                         if ("GSB" in backend_type or "gsb" in backend_type):
                             if (not "GWB" in each_lta or not "gwb" in each_lta):
+                                print(backend_type, "*** GSB")
                                 to_db_list.append(each_lta)
         print("----------")
         print(to_db_list)
