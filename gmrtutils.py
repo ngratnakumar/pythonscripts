@@ -16,7 +16,7 @@ class GmrtUtilites:
         observation_no = 0
         if obslog_file:
             observation_no = os.path.basename(obslog_file).split('.')[0]
-            return self.runxinfoalldb[file_path, obslog_file, observation_no, basename)
+            return self.runxinfoalldb(file_path, obslog_file, observation_no, basename)
         else:
             return "No obslog.. Nothing can be done.."
      
