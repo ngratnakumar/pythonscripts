@@ -25,7 +25,7 @@ class InsertGmrtDataController:
                 lta_file = os.path.basename(each_lta)
                 proj_code = gmrt_db_utils.get_projcode_by_ltaname(lta_file)
                 if GmrtDbUtils().get_projcode_by_ltaname(lta_file):
-                    print("File already exisits in database")
+                    print("File already exisits in database ", lta_file)
                 else:
                     print("Moving ... Forward")                    
                 if proj_code != 0:
