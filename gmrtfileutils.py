@@ -1,6 +1,7 @@
 import os
 import glob
 from config import *
+import subprocess
 
 class GmrtFileUtility:
     
@@ -16,3 +17,15 @@ class GmrtFileUtility:
                 lta_files.append(str(each_lta))
         lta_files.sort()
         return lta_files
+
+    def run_shell_command(self, cmd): 
+        cmd = cmd.split(' ')
+        stderr = ''
+        stdout = ''
+        try:
+            process = subprocess.Popen(
+                cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            stdout, stderr = process.communicate()
+        except Exception as ex:
+            print(ex, stderr, stdout)
+        return (stderr, stdout)
