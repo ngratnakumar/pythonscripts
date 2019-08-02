@@ -28,8 +28,8 @@ class InsertGmrtDataController:
                 lta_file = os.path.basename(each_lta)
                 file_path = os.path.dirname(each_lta)
                 proj_code = gmrt_db_utils.get_projcode_by_ltaname(lta_file)
-                print("Something buchiki buchiki here --- ", proj_code[0])
-                if not proj_code[0]:
+                print("Something buchiki buchiki here --- ", proj_code)
+                if '' not proj_code:
                     print("Proper Project Code or proposal ID")
                     proj_code_with_date = os.path.basename(file_path)
                     if '_' in proj_code_with_date:
