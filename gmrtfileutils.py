@@ -12,7 +12,7 @@ class GmrtFileUtility:
         cycle_path = get_data('data_storage','GMRTDATA5')+"/CYCLE"+cycle_id+"/"
         #print(cycle_path)
 	lta_files = []
-        for each_lta in glob.glob(cycle_path+"*/*.lta*"):
+        for each_lta in glob.glob(cycle_path+"*/*.lta*")[:2]:
         	lta_files.append(str(each_lta))
 	lta_files.sort()
         return lta_files
