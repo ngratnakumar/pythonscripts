@@ -17,6 +17,7 @@ class InsertGmrtDataController:
     """
 
     def check_for_backend_type(self, files_list):
+        print("Inside chech_for_backend")
         to_db_list = []
         gmrt_db_utils = GmrtDbUtils()
         files_list.sort(reverse = True)
@@ -53,6 +54,7 @@ class InsertGmrtDataController:
         return lta_file_list, lta_db_list      
         
     def generate_sqls(self, data_paths):
+        print("Inside generate_sqls", data_paths)
         sql_scripts = []
         for each_path in data_paths:
             sql_scripts.append(GmrtUtilites().xinfo(each_path))
