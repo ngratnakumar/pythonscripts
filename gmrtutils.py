@@ -7,11 +7,13 @@ class GmrtUtilites:
     def runxinfoalldb(self, file_path, obslog_file, observation_no, basename):
         outfile = str(observation_no)+"-"+basename+".json"
         runxinfo_bin = get_data('gmrt_utils','RUNXINFOALLDB')
-        if get_data('debug_mode','PRINTON'): print("RUNXINFOALLDB", file_path, obslog_file, observation_no, basename)
+        if get_data('debug_mode','PRINTON'): 
+            print("RUNXINFOALLDB", file_path, obslog_file, observation_no, basename)
         return outfile
     
     def xinfo(self, file_path):
-        if get_data('debug_mode','PRINTON'): print("XINFO", file_path)
+        if get_data('debug_mode','PRINTON'): 
+            print("XINFO", file_path)
         xinfo_bin = get_data('gmrt_utils','XINFO')
         dirname = os.path.dirname(file_path)
         basename = os.path.basename(file_path)
@@ -33,7 +35,8 @@ class GmrtUtilites:
     def jxinfo(self, outfile):
         jxinfo_bin = get_data('gmrt_utils','JXINFO')
         sql_file = outfile.replace('json','sql')
-        if get_data('debug_mode','PRINTON'): print("JXINO", sql_file)
+        if get_data('debug_mode','PRINTON'): 
+            print("JXINO", sql_file)
         return sql_file
             
     
