@@ -1,6 +1,7 @@
 from config import *
 import os
 import glob
+from gmrtfileutils import GmrtFileUtility
 
 class GmrtUtilites:
     
@@ -9,6 +10,7 @@ class GmrtUtilites:
         runxinfo_bin = get_data('gmrt_utils','RUNXINFOALLDB')
         if get_data('debug_mode','PRINTON'): 
             print("RUNXINFOALLDB", file_path, obslog_file, observation_no, basename)
+        GmrtFileUtility().run_shell_command("testing with multiple spaces")
         return outfile
     
     def xinfo(self, file_path):

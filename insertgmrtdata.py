@@ -32,7 +32,7 @@ class InsertGmrtDataController:
                 if get_data('debug_mode','PRINTON'):       
                     print("Everything is in Sync ... No new data")
         if get_data('debug_mode','PRINTON'): 
-            print("---------/n", to_db_list, "---------/n")
+            print("---------", to_db_list, "---------")
         return to_db_list
                                          
     def checking_files_dbrecords(self):

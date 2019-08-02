@@ -5,9 +5,6 @@ import subprocess
 
 class GmrtFileUtility:
     
-    def read_file(self):
-        pass
-
     def get_lta_file_list(self):
         cycle_id = get_data('cycle_info','CYCLE_ID')
         cycle_path = get_data('data_storage','GMRTDATA5')+"/CYCLE"+cycle_id+"/"
@@ -23,6 +20,8 @@ class GmrtFileUtility:
 
     def run_shell_command(self, cmd): 
         cmd = cmd.split(' ')
+        print(cmd)
+        """
         stderr = ''
         stdout = ''
         try:
@@ -32,3 +31,4 @@ class GmrtFileUtility:
         except Exception as ex:
             print(ex, stderr, stdout)
         return (stderr, stdout)
+        """
