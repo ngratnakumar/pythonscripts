@@ -27,12 +27,12 @@ class InsertGmrtDataController:
                 if GmrtDbUtils().get_projcode_by_ltaname(lta_file):
                     print("File already exisits in database ", lta_file)
                 else:
-                    print("Moving ... Forward")                    
+                    print("Moving ... Forward", lta_file)                    
                     if proj_code != 0:
                         to_db_list.append(each_lta)
                             
         if get_data('debug_mode','PRINTON'): 
-            print("---------\n", to_db_list, "---------\n")
+            print("---------/n", to_db_list, "---------/n")
         return to_db_list
                                          
     def checking_files_dbrecords(self):

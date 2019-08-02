@@ -14,7 +14,7 @@ class GmrtFileUtility:
         if get_data('debug_mode','PRINTON'): 
             print("CYCLE_PATH", cycle_path)
         lta_files = []
-        for each_lta in glob.glob(cycle_path+"*/*.lta*")[:5]:
+        for each_lta in glob.glob(cycle_path+"*/*.lta*")[:25]:
                 lta_files.append(str(each_lta))
         lta_files.sort()
         if get_data('debug_mode','PRINTON'): 
