@@ -54,7 +54,7 @@ class InsertGmrtDataController:
         
     def generate_sqls(self, data_paths):
         for each_path in data_paths:
-            GmrtUtilites().xinfo(each_path)
+            print(GmrtUtilites().xinfo(each_path))
         
     def program_controller(self):
         gmrt_lta_files, gmrt_lta_db = self.checking_files_dbrecords()
