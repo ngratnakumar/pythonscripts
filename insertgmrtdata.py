@@ -42,7 +42,7 @@ class InsertGmrtDataController:
                     #     print(backend_type, "=== GSB")
                     to_db_list.append(each_lta)
                             
-        if get_data('debug_mode','PRINTON'): print("---------\n", to_db_list, "---------\n")
+        if get_data('debug_mode','PRINTON') == True: print("---------\n", to_db_list, "---------\n")
         return to_db_list
                                          
     def checking_files_dbrecords(self):
@@ -51,7 +51,7 @@ class InsertGmrtDataController:
         return lta_file_list    
         
     def generate_sqls(self, data_paths):
-        if get_data('debug_mode','PRINTON'): print("Inside generate_sqls", data_paths)
+        if get_data('debug_mode','PRINTON') == True: print("Inside generate_sqls", data_paths)
         sql_scripts = []
         for each_path in data_paths:
             sql_scripts.append(GmrtUtilites().xinfo(each_path))
@@ -61,7 +61,7 @@ class InsertGmrtDataController:
         gmrt_lta_files = self.checking_files_dbrecords()
         ltas_to_db = self.check_for_backend_type(gmrt_lta_files)
         sql_scripts = self.generate_sqls(ltas_to_db)
-        if get_data('debug_mode','PRINTON'): print(sql_scripts)
+        if get_data('debug_mode','PRINTON') == True: print(sql_scripts)
         
 
 InsertGmrtDataController = InsertGmrtDataController()
