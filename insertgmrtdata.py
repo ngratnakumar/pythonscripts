@@ -42,6 +42,9 @@ class InsertGmrtDataController:
                         if ("GSB" in backend_type or "gsb" in backend_type):
                             if (not "GWB" in each_lta or not "gwb" in each_lta):
                                 to_db_list.append(each_lta)
+        print("----------")
+        print(to_db_list)
+        print("----------")
         return to_db_list
                                          
     def checking_files_dbrecords(self):
