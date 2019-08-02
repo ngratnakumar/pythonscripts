@@ -28,7 +28,9 @@ class InsertGmrtDataController:
                 else:
                     print("Moving ... Forward", lta_file)                    
                     to_db_list.append(each_lta)
-                            
+            if not to_db_list:      
+                if get_data('debug_mode','PRINTON'):       
+                    print("Everything is in Sync ... No new data")
         if get_data('debug_mode','PRINTON'): 
             print("---------/n", to_db_list, "---------/n")
         return to_db_list
