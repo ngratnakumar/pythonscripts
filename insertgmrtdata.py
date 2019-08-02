@@ -32,7 +32,7 @@ class InsertGmrtDataController:
                     if ("DDT" in proj_code_with_date or "ddt" in proj_code_with_date):
                         proj_code = proj_code_with_date[:7].replace('DDT','ddt') 
                     backend_type = gmrt_db_utils.get_backend_type(proj_code)
-                    print("==> ",proj_code), " === ", backend_type)
+                    print("==> ",proj_code, " === ", backend_type)
                     if backend_type != 0:
                         backend_type= backend_type[0]
                         if ("GWB" in backend_type or "gwb" in backend_type):
