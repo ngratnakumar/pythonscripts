@@ -11,12 +11,12 @@ class GmrtFileUtility:
     def get_lta_file_list(self):
         cycle_id = get_data('cycle_info','CYCLE_ID')
         cycle_path = get_data('data_storage','GMRTDATA5')+"/CYCLE"+cycle_id+"/"
-        if get_data('debug_mode','PRINTON') == True: print("CYCLE_PATH", cycle_path)
+        if get_data('debug_mode','PRINTON'): print("CYCLE_PATH", cycle_path)
         lta_files = []
         for each_lta in glob.glob(cycle_path+"*/*.lta*")[:5]:
                 lta_files.append(str(each_lta))
         lta_files.sort()
-        if get_data('debug_mode','PRINTON') == True: print("Inside get_lta_files_list", lta_files)
+        if get_data('debug_mode','PRINTON'): print("Inside get_lta_files_list", lta_files)
         return lta_files
 
     def run_shell_command(self, cmd): 
