@@ -23,13 +23,11 @@ class InsertGmrtDataController:
         for each_lta in files_list:
             if ("TEST" not in each_lta or "test" not in each_lta or "TST" not in each_lta or "tst" not in each_lta):
                 lta_file = os.path.basename(each_lta)
-                proj_code = gmrt_db_utils.get_projcode_by_ltaname(lta_file)
                 if GmrtDbUtils().get_projcode_by_ltaname(lta_file):
                     print("File already exisits in database ", lta_file)
                 else:
                     print("Moving ... Forward", lta_file)                    
-                    if proj_code != 0:
-                        to_db_list.append(each_lta)
+                    to_db_list.append(each_lta)
                             
         if get_data('debug_mode','PRINTON'): 
             print("---------/n", to_db_list, "---------/n")
