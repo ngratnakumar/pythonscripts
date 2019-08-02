@@ -13,9 +13,10 @@ class GmrtFileUtility:
         cycle_path = get_data('data_storage','GMRTDATA5')+"/CYCLE"+cycle_id+"/"
         #print(cycle_path)
         lta_files = []
-        for each_lta in glob.glob(cycle_path+"*/*.lta*")[:2]:
+        for each_lta in glob.glob(cycle_path+"*/*.lta*")[:1]:
                 lta_files.append(str(each_lta))
         lta_files.sort()
+	print("Inside get_lta_files_list", lta_files)
         return lta_files
 
     def run_shell_command(self, cmd): 

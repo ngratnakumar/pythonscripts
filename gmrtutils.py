@@ -15,8 +15,8 @@ class GmrtUtilites:
         dirname = os.path.dirname(file_path)
         basename = os.path.basename(file_path)
         obslog_file = glob.glob(dirname+'/*.obslog')[0]
-        print(file_path, obslog_file, observation_no, basename)
         observation_no = 0
+        print(file_path, obslog_file, observation_no, basename)
         if obslog_file:
             observation_no = os.path.basename(obslog_file).split('.')[0]
             return self.runxinfoalldb(file_path, obslog_file, observation_no, basename)
