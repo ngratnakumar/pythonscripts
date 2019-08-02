@@ -33,6 +33,7 @@ class GmrtUtilites:
     def jxinfo(self, outfile):
         jxinfo_bin = get_data('gmrt_utils','JXINFO')
         sql_file = outfile.replace('json','sql')
+        print("JXINO", sql_file)
         return sql_file
             
     
