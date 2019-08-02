@@ -24,17 +24,21 @@ class InsertGmrtDataController:
         print("^^^^^^^ reversed",files_list)
         for each_lta in files_list:
             if ("TEST" not in each_lta or "test" not in each_lta or "TST" not in each_lta or "tst" not in each_lta):
+                print("This is a valid Observation", each_lta)
                 lta_file = os.path.basename(each_lta)
                 file_path = os.path.dirname(each_lta)
                 proj_code = gmrt_db_utils.get_projcode_by_ltaname(lta_file)
                 if not proj_code:
+                    print("Proper Project Code or proposal ID")
                     proj_code_with_date = os.path.basename(file_path)
                     if '_' in proj_code_with_date:
                         proj_code = proj_code_with_date[:6]
                     if ("DDT" in proj_code_with_date or "ddt" in proj_code_with_date):
                         proj_code = proj_code_with_date[:7].replace('DDT','ddt') 
                     backend_type = gmrt_db_utils.get_backend_type(proj_code)
+                    print("Backend type exisits ?????")
                     if backend_type != 0:
+                        print("Backend Exisit")
                         backend_type= backend_type[0]
                         print("+++++",each_lta, proj_code_with_date, proj_code, backend_type)
                         if ("GWB" in backend_type or "gwb" in backend_type):
@@ -45,6 +49,7 @@ class InsertGmrtDataController:
                             if (not "GWB" in each_lta or not "gwb" in each_lta):
                                 print(backend_type, "*** GSB")
                                 to_db_list.append(each_lta)
+                            
         print("----------")
         print(to_db_list)
         print("----------")
